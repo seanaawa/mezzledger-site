@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Precios - Mezzanine Ledger</title>
+  <meta name="description" content="Precios por alcance.">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/styles.css">
+  <script defer src="/assets/site.config.js"></script>
+  <script defer src="/assets/app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="/">
+          <div class="logo" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M7 7h10M7 12h10M7 17h10" stroke="rgba(249,250,251,.9)" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h1>Mezzanine Ledger</h1>
+            <p class="i18n" data-es="Libros e impuestos, en regla" data-en="Books &amp; Taxes, On the Level"></p>
+          </div>
+        </a>
+
+        <nav class="navlinks" aria-label="Primary">
+          <a class="pill" href="/pricing.html"><span class="i18n" data-es="Precios" data-en="Pricing"></span></a>
+          <a class="pill" href="/services.html"><span class="i18n" data-es="Servicios" data-en="Services"></span></a>
+          <a class="pill" href="/about.html"><span class="i18n" data-es="Acerca" data-en="About"></span></a>
+          <a class="pill" href="/contact.html"><span class="i18n" data-es="Contacto" data-en="Contact"></span></a>
+          <a class="pill primary" href="https://portal.mezzledger.com"><span class="i18n" data-es="Portal del Cliente" data-en="Client Portal"></span></a>
+          <div class="lang">
+            <label class="small mono" for="langSelect">LANG</label>
+            <select id="langSelect" aria-label="Language">
+              <option value="es">ES</option>
+              <option value="en">EN</option>
+            </select>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="card article">
+        
+<h1 class="i18n" data-es="Precios" data-en="Pricing"></h1>
+<p class="i18n"
+ data-es="Tarifas por adelantado y por alcance.  Los precios aquí son ejemplos listos para publicar - ajusta a tu gusto."
+ data-en="Upfront, scope-based pricing.  The numbers below are publish-ready examples - adjust as you like."></p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th class="i18n" data-es="Servicio" data-en="Service"></th>
+      <th class="i18n" data-es="Desde" data-en="Starting at"></th>
+      <th class="i18n" data-es="Incluye" data-en="Includes"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="i18n" data-es="Impuestos personales (1040)" data-en="Personal tax (1040)"></td>
+      <td>$199</td>
+      <td class="i18n" data-es="W-2/1099 comunes, e-file." data-en="Common W-2/1099, e-file."></td>
+    </tr>
+    <tr>
+      <td class="i18n" data-es="Impuestos de negocio (según entidad)" data-en="Business tax (entity-based)"></td>
+      <td>$499</td>
+      <td class="i18n" data-es="Alcance según docs y complejidad." data-en="Scope based on docs and complexity."></td>
+    </tr>
+    <tr>
+      <td class="i18n" data-es="Contabilidad mensual" data-en="Monthly bookkeeping"></td>
+      <td>$249/mo</td>
+      <td class="i18n" data-es="Conciliación, categorías, reportes." data-en="Reconciliation, categorization, reports."></td>
+    </tr>
+    <tr>
+      <td class="i18n" data-es="Limpieza de libros" data-en="Books clean-up"></td>
+      <td>$65/hr</td>
+      <td class="i18n" data-es="Arreglo por periodos atrasados." data-en="Fix past periods."></td>
+    </tr>
+  </tbody>
+</table>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div>
+          <div><b>Mezzanine Ledger</b></div>
+          <div class="small i18n" data-es="Libros e impuestos, en regla" data-en="Books &amp; Taxes, On the Level"></div>
+        </div>
+        <div class="small">
+          <a href="/terms.html"><span class="i18n" data-es="Términos" data-en="Terms"></span></a>
+          &nbsp; • &nbsp;
+          <a href="/privacy.html"><span class="i18n" data-es="Privacidad" data-en="Privacy"></span></a>
+          &nbsp; • &nbsp;
+          <a href="/sitemap.xml">Sitemap</a>
+        </div>
+      </div>
+      <div class="small">© <span id="year"></span> Mezzanine Ledger.  All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

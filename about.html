@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Acerca - Mezzanine Ledger</title>
+  <meta name="description" content="Información sobre Mezzanine Ledger.">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/styles.css">
+  <script defer src="/assets/site.config.js"></script>
+  <script defer src="/assets/app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="/">
+          <div class="logo" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M7 7h10M7 12h10M7 17h10" stroke="rgba(249,250,251,.9)" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h1>Mezzanine Ledger</h1>
+            <p class="i18n" data-es="Libros e impuestos, en regla" data-en="Books &amp; Taxes, On the Level"></p>
+          </div>
+        </a>
+
+        <nav class="navlinks" aria-label="Primary">
+          <a class="pill" href="/pricing.html"><span class="i18n" data-es="Precios" data-en="Pricing"></span></a>
+          <a class="pill" href="/services.html"><span class="i18n" data-es="Servicios" data-en="Services"></span></a>
+          <a class="pill" href="/about.html"><span class="i18n" data-es="Acerca" data-en="About"></span></a>
+          <a class="pill" href="/contact.html"><span class="i18n" data-es="Contacto" data-en="Contact"></span></a>
+          <a class="pill primary" href="https://portal.mezzledger.com"><span class="i18n" data-es="Portal del Cliente" data-en="Client Portal"></span></a>
+          <div class="lang">
+            <label class="small mono" for="langSelect">LANG</label>
+            <select id="langSelect" aria-label="Language">
+              <option value="es">ES</option>
+              <option value="en">EN</option>
+            </select>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="card article">
+        
+<h1 class="i18n" data-es="Acerca de Mezzanine Ledger" data-en="About Mezzanine Ledger"></h1>
+<p class="i18n"
+ data-es="Mezzanine Ledger ayuda a personas y pequeñas empresas a mantener sus libros en orden y sus impuestos al día.  El enfoque es práctico: claridad, seguimiento, y un proceso sencillo."
+ data-en="Mezzanine Ledger helps individuals and small businesses keep their books organized and their taxes current.  The approach is practical: clarity, follow-through, and a simple process."></p>
+
+<h2 class="i18n" data-es="Cómo trabajamos" data-en="How we work"></h2>
+<ul>
+  <li class="i18n" data-es="Precios por adelantado - sin sorpresas." data-en="Upfront pricing - no surprises."></li>
+  <li class="i18n" data-es="Checklist claro de documentos desde el inicio." data-en="Clear document checklist from the start."></li>
+  <li class="i18n" data-es="Portal seguro para subir archivos y firmar." data-en="Secure portal for uploads and e-sign."></li>
+  <li class="i18n" data-es="Comunicación simple: qué falta, qué sigue, y cuándo termina." data-en="Simple communication: what’s missing, what’s next, and when it’s done."></li>
+</ul>
+<p class="notice i18n"
+ data-es="<b>Personaliza:</b> agrega biografía, licencias, y ciudades que atiendes.  Este texto es un placeholder fuerte."
+ data-en="<b>Customize:</b> add your bio, credentials, and the cities you serve.  This is a strong placeholder."></p>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div>
+          <div><b>Mezzanine Ledger</b></div>
+          <div class="small i18n" data-es="Libros e impuestos, en regla" data-en="Books &amp; Taxes, On the Level"></div>
+        </div>
+        <div class="small">
+          <a href="/terms.html"><span class="i18n" data-es="Términos" data-en="Terms"></span></a>
+          &nbsp; • &nbsp;
+          <a href="/privacy.html"><span class="i18n" data-es="Privacidad" data-en="Privacy"></span></a>
+          &nbsp; • &nbsp;
+          <a href="/sitemap.xml">Sitemap</a>
+        </div>
+      </div>
+      <div class="small">© <span id="year"></span> Mezzanine Ledger.  All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
