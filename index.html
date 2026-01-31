@@ -3,188 +3,636 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mezzanine Ledger  -  Books & Taxes, On the Level</title>
-  <meta name="description" content="Bookkeeping, tax preparation, and cleanup for individuals and small businesses in Ventura County, CA." />
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <title>Mezzanine Ledger - Books & Taxes, On the Level</title>
+  <meta name="description" content="Bookkeeping and tax preparation with transparent pricing and a secure client portal." />
+  <meta name="theme-color" content="#ffffff" />
+  <style>
+    :root{
+      --bg:#ffffff;
+      --panel:#ffffff;
+      --text:#0f172a;
+      --muted:#475569;
+      --border:#e2e8f0;
+      --soft:#f8fafc;
+      --link:#0f172a;
+      --btn:#0f172a;
+      --btnText:#ffffff;
+      --focus:#94a3b8;
+      --shadow:0 1px 0 rgba(15,23,42,.06);
+      --radius:14px;
+      --max:1060px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
+    }
+    a{color:var(--link); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
+    .topbar{
+      position:sticky; top:0; z-index:20;
+      background:rgba(255,255,255,.92);
+      backdrop-filter:saturate(180%) blur(10px);
+      border-bottom:1px solid var(--border);
+    }
+    .toprow{
+      display:flex; align-items:center; justify-content:space-between;
+      height:64px;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      min-width:220px;
+    }
+    .mark{
+      width:34px; height:34px; border-radius:10px;
+      background:var(--soft);
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+      display:grid; place-items:center;
+      font-weight:700; letter-spacing:.02em;
+      color:var(--text);
+      user-select:none;
+    }
+    .brandtext{display:flex; flex-direction:column; line-height:1.1}
+    .brandname{font-weight:700; font-size:14px; letter-spacing:.01em}
+    .brandsub{font-size:12px; color:var(--muted)}
+    nav{
+      display:flex; align-items:center; gap:18px;
+      flex:1;
+      justify-content:center;
+    }
+    nav a{
+      font-size:13px;
+      color:var(--muted);
+      padding:8px 10px;
+      border-radius:10px;
+    }
+    nav a:hover{
+      background:var(--soft);
+      text-decoration:none;
+      color:var(--text);
+    }
+    .actions{
+      display:flex; align-items:center; gap:10px;
+      min-width:220px;
+      justify-content:flex-end;
+    }
+    .btn, .btnOutline{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:8px;
+      height:40px;
+      padding:0 14px;
+      border-radius:12px;
+      font-weight:600;
+      font-size:13px;
+      border:1px solid transparent;
+      box-shadow:var(--shadow);
+      white-space:nowrap;
+    }
+    .btn{
+      background:var(--btn);
+      color:var(--btnText);
+    }
+    .btn:hover{text-decoration:none; filter:brightness(0.98)}
+    .btnOutline{
+      background:var(--panel);
+      border-color:var(--border);
+      color:var(--text);
+    }
+    .btnOutline:hover{
+      text-decoration:none;
+      background:var(--soft);
+    }
+    .btn:focus, .btnOutline:focus, a:focus, button:focus{
+      outline:3px solid rgba(148,163,184,.55);
+      outline-offset:2px;
+    }
+    .hero{
+      padding:36px 0 18px;
+    }
+    .gridHero{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:18px;
+      align-items:start;
+    }
+    .card{
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+    .cardPad{padding:18px}
+    h1{
+      margin:0 0 10px;
+      font-size:34px;
+      letter-spacing:-.02em;
+      line-height:1.15;
+    }
+    .lead{
+      margin:0 0 16px;
+      color:var(--muted);
+      font-size:15px;
+      max-width:62ch;
+    }
+    .pillRow{display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 0}
+    .pill{
+      font-size:12px;
+      color:var(--muted);
+      background:var(--soft);
+      border:1px solid var(--border);
+      padding:6px 10px;
+      border-radius:999px;
+    }
+    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .mini{
+      font-size:12px;
+      color:var(--muted);
+      margin-top:10px;
+    }
+    .side{
+      display:grid;
+      gap:12px;
+    }
+    .side .stat{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      padding:16px 16px 14px;
+    }
+    .statLabel{font-size:12px; color:var(--muted)}
+    .statValue{font-size:14px; font-weight:700}
+    .statSub{font-size:12px; color:var(--muted)}
+    .section{
+      padding:12px 0;
+    }
+    .sectionTitle{
+      margin:18px 0 10px;
+      font-size:13px;
+      color:var(--muted);
+      font-weight:700;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .cols3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+    }
+    .item h3{
+      margin:0 0 6px;
+      font-size:14px;
+      letter-spacing:-.01em;
+    }
+    .item p{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .steps{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+    }
+    .stepNum{
+      width:30px; height:30px;
+      border-radius:10px;
+      background:var(--soft);
+      border:1px solid var(--border);
+      display:grid; place-items:center;
+      font-weight:700;
+      font-size:13px;
+      margin-bottom:10px;
+    }
+    .pricing{
+      overflow:hidden;
+    }
+    .pricing table{
+      width:100%;
+      border-collapse:collapse;
+      font-size:13px;
+    }
+    .pricing thead th{
+      text-align:left;
+      padding:12px 14px;
+      background:var(--soft);
+      border-bottom:1px solid var(--border);
+      color:var(--muted);
+      font-weight:700;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      font-size:12px;
+    }
+    .pricing tbody td{
+      padding:12px 14px;
+      border-bottom:1px solid var(--border);
+      vertical-align:top;
+    }
+    .pricing tbody tr:last-child td{border-bottom:none}
+    .price{
+      font-weight:800;
+      letter-spacing:-.01em;
+      white-space:nowrap;
+    }
+    .muted{color:var(--muted)}
+    .twoCol{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+    .contactGrid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      align-items:start;
+    }
+    .field{
+      display:grid;
+      gap:6px;
+      margin-top:10px;
+    }
+    .field label{font-size:12px; color:var(--muted); font-weight:600}
+    input, textarea{
+      width:100%;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:#fff;
+      font:inherit;
+      font-size:14px;
+    }
+    textarea{min-height:110px; resize:vertical}
+    .footer{
+      margin-top:22px;
+      padding:22px 0 34px;
+      border-top:1px solid var(--border);
+    }
+    .footRow{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px 16px;
+      justify-content:space-between;
+      align-items:center;
+      color:var(--muted);
+      font-size:12px;
+    }
+    .footLinks{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .mobileNavBtn{display:none}
+    .mobileNav{
+      display:none;
+      border-top:1px solid var(--border);
+      padding:10px 0 12px;
+    }
+    .mobileNav a{
+      display:block;
+      padding:10px 10px;
+      border-radius:12px;
+      color:var(--muted);
+    }
+    .mobileNav a:hover{background:var(--soft); text-decoration:none; color:var(--text)}
+    @media (max-width: 900px){
+      nav{display:none}
+      .mobileNavBtn{display:inline-flex}
+      .gridHero{grid-template-columns:1fr; gap:12px}
+      .cols3{grid-template-columns:1fr}
+      .steps{grid-template-columns:1fr}
+      .twoCol{grid-template-columns:1fr}
+      .contactGrid{grid-template-columns:1fr}
+      .brand{min-width:auto}
+      .actions{min-width:auto}
+      .mobileNav{display:none}
+      .mobileNav.open{display:block}
+    }
+  </style>
 </head>
 <body>
-  <header class="nav">
-    <div class="container nav-inner">
-      <a class="brand" href="index.html" aria-label="Mezzanine Ledger home">
-        <div class="logo" aria-hidden="true"></div>
-        <div class="brand-text">
-          <strong>Mezzanine Ledger</strong>
-          <span>Books &amp; Taxes, On the Level</span>
+  <header class="topbar">
+    <div class="wrap">
+      <div class="toprow">
+        <div class="brand">
+          <div class="mark">ML</div>
+          <div class="brandtext">
+            <div class="brandname">Mezzanine Ledger</div>
+            <div class="brandsub">Books &amp; Taxes, On the Level</div>
+          </div>
         </div>
-      </a>
-      <nav class="nav-links" aria-label="Primary navigation">
+
+        <nav aria-label="Primary">
+          <a href="#services">Services</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#how">How it works</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="actions">
+          <button class="btnOutline mobileNavBtn" type="button" id="navToggle" aria-expanded="false" aria-controls="mobileNav">Menu</button>
+          <a class="btnOutline" href="https://portal.mezzledger.com" rel="noopener">Client Portal</a>
+          <a class="btn" href="#contact">Get started</a>
+        </div>
+      </div>
+
+      <div id="mobileNav" class="mobileNav" aria-label="Mobile">
         <a href="#services">Services</a>
-        <a href="#process">Process</a>
-        <a href="#faq">FAQ</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#how">How it works</a>
+        <a href="#about">About</a>
         <a href="#contact">Contact</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="sms-terms.html">SMS Terms</a>
-        <a href="https://portal.mezzledger.com">Client Portal</a>
-      </nav>
+        <a href="https://portal.mezzledger.com" rel="noopener">Client Portal</a>
+      </div>
     </div>
   </header>
 
   <main>
     <section class="hero">
-      <div class="container hero-grid">
-        <div class="card hero-card">
-          <div class="kicker">Mezzanine Ledger  -  Ventura County, CA</div>
-          <h1>Books & Taxes, On the Level.</h1>
-          <p class="lede">Clean books.  Clean filings.  Straight answers.  A small, responsive practice built for people who want things done correctly - without the runaround.</p>
-          <div class="actions">
-            <a class="btn primary" href="#contact">Get started</a>
-            <a class="btn" href="https://portal.mezzledger.com">Go to client portal</a>
-            <a class="btn" href="tel:+18058883453">(805) 888-FILE</a>
+      <div class="wrap">
+        <div class="gridHero">
+          <div class="card">
+            <div class="cardPad">
+              <h1>Bookkeeping and tax preparation, done clean.</h1>
+              <p class="lead">Simple systems, clear pricing, and a secure client portal.  Built for individuals and small businesses that want things correct, organized, and ready when it matters.</p>
+              <div class="ctaRow">
+                <a class="btn" href="https://portal.mezzledger.com" rel="noopener">Access Client Portal</a>
+                <a class="btnOutline" href="#pricing">View pricing</a>
+              </div>
+              <div class="pillRow" aria-label="Highlights">
+                <div class="pill">Portal-based workflow</div>
+                <div class="pill">Clear deliverables</div>
+                <div class="pill">No surprise fees</div>
+                <div class="pill">CA-focused</div>
+              </div>
+              <div class="mini">Phone: (805) 888-FILE  •  Email: <a href="mailto:sean@mezzledger.com">sean@mezzledger.com</a></div>
+            </div>
           </div>
-        </div>
 
-        <aside class="card quick" aria-label="Quick facts">
-          <h3>Quick facts</h3>
-          <div class="list">
-            <div class="item">
-              <div class="icon">✓</div>
-              <div><b>Clear scope</b><span>No mystery billing.  Upfront pricing.</span></div>
+          <div class="side">
+            <div class="card stat">
+              <div class="statLabel">Response and turnaround</div>
+              <div class="statValue">Clear expectations</div>
+              <div class="statSub">You’ll know what’s needed, what you’ll get, and when.</div>
             </div>
-            <div class="item">
-              <div class="icon">⏱</div>
-              <div><b>Fast turnaround</b><span>Clean handoffs and tight timelines.</span></div>
+            <div class="card stat">
+              <div class="statLabel">Security</div>
+              <div class="statValue">Client portal first</div>
+              <div class="statSub">Documents, requests, and delivery stay organized.</div>
             </div>
-            <div class="item">
-              <div class="icon">🔒</div>
-              <div><b>Secure docs</b><span>Upload and e-sign through the portal.</span></div>
+            <div class="card stat">
+              <div class="statLabel">Quality</div>
+              <div class="statValue">Clean books</div>
+              <div class="statSub">Reconciled, categorized, and ready for tax time.</div>
             </div>
-            <div class="item">
-              <div class="icon">📩</div>
-              <div><b>Text updates</b><span>Optional SMS reminders and status updates.</span></div>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section id="services">
-      <div class="container">
-        <div class="section-title">
-          <h2>Services</h2>
-          <p>Bookkeeping  -  tax  -  cleanup  -  support</p>
-        </div>
-
-        <div class="grid3">
-          <div class="card feature">
-            <div class="icon">📚</div>
-            <h3>Monthly bookkeeping</h3>
-            <p>Categorization, reconciliations, and clean monthly reporting.  Built for QuickBooks Online workflows.</p>
-          </div>
-          <div class="card feature">
-            <div class="icon">🧾</div>
-            <h3>Tax preparation</h3>
-            <p>Individuals and small businesses.  Organized intake, clear document requests, and an audit-ready file.</p>
-          </div>
-          <div class="card feature">
-            <div class="icon">🧹</div>
-            <h3>Cleanup &amp; catch-up</h3>
-            <p>Behind on bookkeeping?  We bring it current, fix chart issues, and standardize your process.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="process">
-      <div class="container">
-        <div class="section-title">
-          <h2>Process</h2>
-          <p>Simple, repeatable, and documented</p>
+    <section class="section" id="services">
+      <div class="wrap">
+        <div class="sectionTitle">Services</div>
+        <div class="cols3">
+          <div class="card item">
+            <div class="cardPad">
+              <h3>Bookkeeping</h3>
+              <p>Monthly reconciliation, categorization, and tidy financials you can trust.</p>
+            </div>
+          </div>
+          <div class="card item">
+            <div class="cardPad">
+              <h3>Tax preparation</h3>
+              <p>Individual and small business returns with a clean, documented workflow.</p>
+            </div>
+          </div>
+          <div class="card item">
+            <div class="cardPad">
+              <h3>Cleanup and catch-up</h3>
+              <p>Behind on books.  We bring it current and make it stay that way.</p>
+            </div>
+          </div>
         </div>
 
+        <div class="twoCol" style="margin-top:12px">
+          <div class="card item">
+            <div class="cardPad">
+              <h3>Controller-style support</h3>
+              <p>Process, controls, and reporting improvements for owners who want clarity.</p>
+            </div>
+          </div>
+          <div class="card item">
+            <div class="cardPad">
+              <h3>Client portal onboarding</h3>
+              <p>One place for tasks, uploads, signatures, and delivery so nothing gets lost.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="pricing">
+      <div class="wrap">
+        <div class="sectionTitle">Pricing</div>
+        <div class="card pricing">
+          <table>
+            <thead>
+              <tr>
+                <th style="width:34%">Service</th>
+                <th style="width:18%">Starting at</th>
+                <th>What’s included</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Monthly Bookkeeping</strong><div class="muted">Small business</div></td>
+                <td class="price">$___/mo</td>
+                <td class="muted">Reconciliation, categorization, monthly reports, portal requests, clean handoff for tax.</td>
+              </tr>
+              <tr>
+                <td><strong>Cleanup / Catch-up</strong><div class="muted">Past periods</div></td>
+                <td class="price">$___</td>
+                <td class="muted">Bring books current, resolve missing items, normalize categories, reconcile and document.</td>
+              </tr>
+              <tr>
+                <td><strong>Tax Preparation</strong><div class="muted">Individual</div></td>
+                <td class="price">$___</td>
+                <td class="muted">Portal checklist, organized source documents, prepared return, delivery and records.</td>
+              </tr>
+              <tr>
+                <td><strong>Tax Preparation</strong><div class="muted">Business</div></td>
+                <td class="price">$___</td>
+                <td class="muted">Entity return with portal workflow, organizer, and documented support for filings.</td>
+              </tr>
+              <tr>
+                <td><strong>Advisory</strong><div class="muted">Hourly</div></td>
+                <td class="price">$___/hr</td>
+                <td class="muted">Controls, workflows, reporting, bookkeeping/tax coordination, and clarity for decisions.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="mini">Pricing depends on volume, complexity, and current state of books.  You’ll get a clear scope before work starts.</div>
+      </div>
+    </section>
+
+    <section class="section" id="how">
+      <div class="wrap">
+        <div class="sectionTitle">How it works</div>
         <div class="steps">
-          <div class="card step">
-            <b>1  -  Intake</b>
-            <p>Portal invite, engagement terms, and a short checklist so we only ask for what we need.</p>
+          <div class="card item">
+            <div class="cardPad">
+              <div class="stepNum">1</div>
+              <h3>Portal onboarding</h3>
+              <p>We set up your portal workspace and share a clean checklist for what’s needed.</p>
+            </div>
           </div>
-          <div class="card step">
-            <b>2  -  Work</b>
-            <p>We do the work, flag issues early, and keep a running list of questions so nothing gets lost.</p>
+          <div class="card item">
+            <div class="cardPad">
+              <div class="stepNum">2</div>
+              <h3>Work, reconciled</h3>
+              <p>Books get reconciled and organized with questions handled through portal tasks.</p>
+            </div>
           </div>
-          <div class="card step">
-            <b>3  -  Deliver</b>
-            <p>Deliverables in the portal with a short summary and next-step recommendations.</p>
+          <div class="card item">
+            <div class="cardPad">
+              <div class="stepNum">3</div>
+              <h3>Deliverables</h3>
+              <p>Reports and deliverables are delivered through the portal, clean and archived.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="wrap">
+        <div class="sectionTitle">About</div>
+        <div class="card">
+          <div class="cardPad">
+            <div class="twoCol">
+              <div>
+                <h3 style="margin:0 0 6px; font-size:14px">Mezzanine Ledger</h3>
+                <p style="margin:0; color:var(--muted); font-size:13px">
+                  A clean, systems-first practice focused on bookkeeping and tax preparation.  Simple process, organized records, and clear communication.
+                </p>
+              </div>
+              <div>
+                <h3 style="margin:0 0 6px; font-size:14px">Serving</h3>
+                <p style="margin:0; color:var(--muted); font-size:13px">
+                  California clients and remote workflows.  Portal-based delivery keeps everything secure and easy to track.
+                </p>
+              </div>
+            </div>
+            <div class="pillRow">
+              <div class="pill">Transparent pricing</div>
+              <div class="pill">Documented workflow</div>
+              <div class="pill">Portal delivery</div>
+              <div class="pill">Clean handoff</div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="faq">
-      <div class="container">
-        <div class="section-title">
-          <h2>FAQ</h2>
-          <p>What clients usually ask first</p>
-        </div>
-
-        <div class="faq">
-          <details>
-            <summary>Do you offer SMS updates?</summary>
-            <p>Yes.  SMS is optional and used for appointment reminders and status updates.  See <a href="sms-terms.html">SMS Terms</a>.</p>
-          </details>
-          <details>
-            <summary>Do you share my information?</summary>
-            <p>No selling of personal information.  See <a href="privacy.html">Privacy Policy</a> for details.</p>
-          </details>
-          <details>
-            <summary>How do I send documents?</summary>
-            <p>Use the client portal at <a href="https://portal.mezzledger.com">portal.mezzledger.com</a>.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="container">
-        <div class="section-title">
-          <h2>Contact</h2>
-          <p>Start a file or ask a question</p>
-        </div>
-
-        <div class="grid3">
-          <div class="card feature">
-            <div class="icon">✉️</div>
-            <h3>Email</h3>
-            <p><a href="mailto:sean@mezzledger.com">sean@mezzledger.com</a></p>
+    <section class="section" id="contact">
+      <div class="wrap">
+        <div class="sectionTitle">Contact</div>
+        <div class="contactGrid">
+          <div class="card">
+            <div class="cardPad">
+              <h3 style="margin:0 0 6px; font-size:14px">Start here</h3>
+              <p style="margin:0; color:var(--muted); font-size:13px">Use the portal for uploads and tasks.  For first contact, email or call.</p>
+              <div class="pillRow" style="margin-top:12px">
+                <div class="pill">Phone: (805) 888-FILE</div>
+                <div class="pill">Email: <a href="mailto:sean@mezzledger.com">sean@mezzledger.com</a></div>
+              </div>
+              <div class="ctaRow" style="margin-top:14px">
+                <a class="btn" href="https://portal.mezzledger.com" rel="noopener">Go to Client Portal</a>
+                <a class="btnOutline" href="mailto:sean@mezzledger.com?subject=Mezzanine%20Ledger%20-%20New%20Client%20Inquiry">Email</a>
+              </div>
+            </div>
           </div>
-          <div class="card feature">
-            <div class="icon">📞</div>
-            <h3>Phone</h3>
-            <p><a href="tel:+18058883453">(805) 888-FILE</a></p>
-          </div>
-          <div class="card feature">
-            <div class="icon">🗂</div>
-            <h3>Client Portal</h3>
-            <p><a href="https://portal.mezzledger.com">portal.mezzledger.com</a></p>
+
+          <div class="card">
+            <div class="cardPad">
+              <h3 style="margin:0 0 6px; font-size:14px">Send a message</h3>
+              <form action="mailto:sean@mezzledger.com" method="post" enctype="text/plain">
+                <div class="field">
+                  <label for="name">Name</label>
+                  <input id="name" name="name" autocomplete="name" />
+                </div>
+                <div class="field">
+                  <label for="email">Email</label>
+                  <input id="email" name="email" type="email" autocomplete="email" />
+                </div>
+                <div class="field">
+                  <label for="msg">Message</label>
+                  <textarea id="msg" name="message"></textarea>
+                </div>
+                <div class="ctaRow" style="margin-top:12px">
+                  <button class="btn" type="submit">Send</button>
+                  <a class="btnOutline" href="#pricing">Pricing</a>
+                </div>
+              </form>
+              <div class="mini">If the button opens your email app, that’s expected.  Portal is the primary workflow once onboarded.</div>
+            </div>
           </div>
         </div>
       </div>
     </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="card">
+          <div class="cardPad" style="display:flex; flex-wrap:wrap; gap:10px; justify-content:space-between; align-items:center">
+            <div>
+              <div style="font-weight:800; letter-spacing:-.01em">Ready to work through the portal.</div>
+              <div class="muted" style="font-size:13px">Fast uploads, clean checklists, and tracked requests.</div>
+            </div>
+            <div class="ctaRow" style="margin:0">
+              <a class="btn" href="https://portal.mezzledger.com" rel="noopener">Access Client Portal</a>
+              <a class="btnOutline" href="mailto:sean@mezzledger.com?subject=Mezzanine%20Ledger%20-%20Pricing%20and%20Onboarding">Ask a question</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer class="footer">
-    <div class="container footer-grid">
-      <div>
-        <strong>Mezzanine Ledger</strong><br />
-        <small>Books &amp; Taxes, On the Level</small>
-      </div>
-      <div>
-        <small>
-          <a href="privacy.html">Privacy Policy</a>  |  <a href="sms-terms.html">SMS Terms &amp; Conditions</a>
-        </small>
-      </div>
-      <div>
-        <small>&copy; 2026 Mezzanine Ledger</small>
+    <div class="wrap">
+      <div class="footRow">
+        <div>© <span id="y"></span> Mezzanine Ledger.  Books &amp; Taxes, On the Level.</div>
+        <div class="footLinks">
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/sms-terms.html">SMS Terms</a>
+          <a href="https://portal.mezzledger.com" rel="noopener">Client Portal</a>
+        </div>
       </div>
     </div>
   </footer>
+
+  <script>
+    const y=document.getElementById("y"); if(y) y.textContent=new Date().getFullYear();
+    const t=document.getElementById("navToggle");
+    const m=document.getElementById("mobileNav");
+    if(t&&m){
+      t.addEventListener("click",()=>{
+        const open=m.classList.toggle("open");
+        t.setAttribute("aria-expanded",open?"true":"false");
+      });
+      m.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{
+        m.classList.remove("open");
+        t.setAttribute("aria-expanded","false");
+      }));
+    }
+  </script>
 </body>
 </html>
