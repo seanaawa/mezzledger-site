@@ -3,306 +3,188 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mezzanine Ledger | Libros e impuestos, en regla</title>
-  <meta name="description" content="Mezzanine Ledger - bookkeeping and tax preparation with clarity and transparency. Libros e impuestos, en regla." />
-
-  <style>
-    :root {
-      --max: 1120px;
-      --pad: 24px;
-      --radius: 14px;
-      --border: rgba(0,0,0,0.18);
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.55;
-      color: #111;
-      background: #fff;
-    }
-    a { color: inherit; }
-    .wrap { max-width: var(--max); margin: 0 auto; padding: var(--pad); }
-    header {
-      padding: 18px 0;
-      display: flex;
-      gap: 16px;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid var(--border);
-    }
-    .brand strong { font-size: 18px; letter-spacing: 0.2px; }
-    .brand small { display: block; opacity: 0.82; }
-    nav a {
-      text-decoration: none;
-      margin-left: 14px;
-      padding: 8px 10px;
-      border-radius: 10px;
-    }
-    nav a:hover { outline: 1px solid var(--border); }
-    .hero { padding: 56px 0 18px; }
-    .badge {
-      display: inline-block;
-      padding: 6px 10px;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      font-size: 13px;
-      opacity: 0.95;
-    }
-    h1 {
-      margin: 14px 0 10px;
-      font-size: clamp(34px, 4.2vw, 56px);
-      line-height: 1.06;
-      letter-spacing: -0.6px;
-    }
-    .subhead {
-      font-size: clamp(16px, 2vw, 20px);
-      max-width: 72ch;
-      margin: 0;
-      opacity: 0.92;
-    }
-    .cta-row {
-      margin-top: 18px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      align-items: center;
-    }
-    .btn {
-      display: inline-block;
-      padding: 12px 16px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      text-decoration: none;
-      font-weight: 650;
-    }
-    .btn:hover { outline: 2px solid var(--border); outline-offset: 2px; }
-    .btn.secondary { font-weight: 550; opacity: 0.92; }
-    .fine {
-      margin-top: 14px;
-      max-width: 72ch;
-      opacity: 0.86;
-      font-size: 14px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 18px;
-      margin: 22px 0 34px;
-    }
-    .card {
-      grid-column: span 12;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 18px;
-      background: #fff;
-    }
-    .card p { margin: 10px 0 0; }
-    .card ul { margin: 10px 0 0; padding-left: 18px; }
-    @media (min-width: 860px) {
-      .third { grid-column: span 4; }
-      .half { grid-column: span 6; }
-    }
-    section { padding: 18px 0; }
-    h2 { margin: 0 0 10px; font-size: 24px; letter-spacing: -0.2px; }
-    .kicker { opacity: 0.85; margin: 0 0 10px; }
-    footer {
-      padding: 26px 0 36px;
-      border-top: 1px solid var(--border);
-      margin-top: 18px;
-    }
-    small { opacity: 0.85; }
-  </style>
+  <title>Mezzanine Ledger  -  Books & Taxes, On the Level</title>
+  <meta name="description" content="Bookkeeping, tax preparation, and cleanup for individuals and small businesses in Ventura County, CA." />
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
-
 <body>
-  <div class="wrap">
-    <header aria-label="Site header">
-      <div class="brand">
-        <strong>Mezzanine Ledger</strong>
-        <small>Libros e impuestos, en regla</small>
-      </div>
-
-      <nav aria-label="Primary navigation">
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html" aria-label="Mezzanine Ledger home">
+        <div class="logo" aria-hidden="true"></div>
+        <div class="brand-text">
+          <strong>Mezzanine Ledger</strong>
+          <span>Books &amp; Taxes, On the Level</span>
+        </div>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
         <a href="#services">Services</a>
         <a href="#process">Process</a>
         <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
         <a href="privacy.html">Privacy</a>
         <a href="sms-terms.html">SMS Terms</a>
+        <a href="https://portal.mezzledger.com">Client Portal</a>
       </nav>
-    </header>
+    </div>
+  </header>
 
-    <main>
-      <!-- HERO -->
-      <section class="hero" aria-label="Hero">
-        <span class="badge">Books &amp; Taxes, On the Level</span>
-        <h1>Libros e impuestos, en regla.</h1>
-
-        <p class="subhead">
-          Bookkeeping and tax prep with clear communication, clean records, and a process you can trust.  No chaos.  No guessing.  Just organized finances - done right.
-        </p>
-
-        <div class="cta-row">
-          <a class="btn" href="#contact">Request a quote</a>
-          <a class="btn secondary" href="#services">See services</a>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="card hero-card">
+          <div class="kicker">Mezzanine Ledger  -  Ventura County, CA</div>
+          <h1>Books & Taxes, On the Level.</h1>
+          <p class="lede">Clean books.  Clean filings.  Straight answers.  A small, responsive practice built for people who want things done correctly - without the runaround.</p>
+          <div class="actions">
+            <a class="btn primary" href="#contact">Get started</a>
+            <a class="btn" href="https://portal.mezzledger.com">Go to client portal</a>
+            <a class="btn" href="tel:+18058883453">(805) 888-FILE</a>
+          </div>
         </div>
 
-        <p class="fine">
-          Bilingual support (English / Español).  Serving individuals and small businesses in Ventura County and remotely.
-        </p>
-      </section>
+        <aside class="card quick" aria-label="Quick facts">
+          <h3>Quick facts</h3>
+          <div class="list">
+            <div class="item">
+              <div class="icon">✓</div>
+              <div><b>Clear scope</b><span>No mystery billing.  Upfront pricing.</span></div>
+            </div>
+            <div class="item">
+              <div class="icon">⏱</div>
+              <div><b>Fast turnaround</b><span>Clean handoffs and tight timelines.</span></div>
+            </div>
+            <div class="item">
+              <div class="icon">🔒</div>
+              <div><b>Secure docs</b><span>Upload and e-sign through the portal.</span></div>
+            </div>
+            <div class="item">
+              <div class="icon">📩</div>
+              <div><b>Text updates</b><span>Optional SMS reminders and status updates.</span></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
 
-      <!-- VALUE PROPS -->
-      <section aria-label="Value props">
-        <p class="kicker">What you can expect</p>
-        <div class="grid">
-          <div class="card third">
-            <strong>Clean books</strong>
-            <p>Monthly reconciliations and reports that make sense - built for real decisions.</p>
+    <section id="services">
+      <div class="container">
+        <div class="section-title">
+          <h2>Services</h2>
+          <p>Bookkeeping  -  tax  -  cleanup  -  support</p>
+        </div>
+
+        <div class="grid3">
+          <div class="card feature">
+            <div class="icon">📚</div>
+            <h3>Monthly bookkeeping</h3>
+            <p>Categorization, reconciliations, and clean monthly reporting.  Built for QuickBooks Online workflows.</p>
           </div>
-          <div class="card third">
-            <strong>Straight answers</strong>
-            <p>Clear scope, clear pricing, clear next steps - so you always know what’s happening.</p>
+          <div class="card feature">
+            <div class="icon">🧾</div>
+            <h3>Tax preparation</h3>
+            <p>Individuals and small businesses.  Organized intake, clear document requests, and an audit-ready file.</p>
           </div>
-          <div class="card third">
-            <strong>On the level</strong>
-            <p>Transparent work, organized documentation, and a clean paper trail - no surprises.</p>
+          <div class="card feature">
+            <div class="icon">🧹</div>
+            <h3>Cleanup &amp; catch-up</h3>
+            <p>Behind on bookkeeping?  We bring it current, fix chart issues, and standardize your process.</p>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- SERVICES -->
-      <section id="services" aria-label="Services">
-        <h2>Services</h2>
-        <div class="grid">
-          <div class="card third">
-            <strong>Bookkeeping</strong>
-            <ul>
-              <li>Monthly bank and credit card reconciliations</li>
-              <li>Categorization, cleanup, and catch-up</li>
-              <li>Profit &amp; loss, balance sheet, and reporting</li>
-              <li>QuickBooks support (as applicable)</li>
-            </ul>
+    <section id="process">
+      <div class="container">
+        <div class="section-title">
+          <h2>Process</h2>
+          <p>Simple, repeatable, and documented</p>
+        </div>
+
+        <div class="steps">
+          <div class="card step">
+            <b>1  -  Intake</b>
+            <p>Portal invite, engagement terms, and a short checklist so we only ask for what we need.</p>
           </div>
-
-          <div class="card third">
-            <strong>Tax preparation</strong>
-            <ul>
-              <li>Organized intake and document checklist</li>
-              <li>Individual and small business returns (as applicable)</li>
-              <li>Year-round readiness - not last-minute panic</li>
-              <li>Clear review and next steps</li>
-            </ul>
+          <div class="card step">
+            <b>2  -  Work</b>
+            <p>We do the work, flag issues early, and keep a running list of questions so nothing gets lost.</p>
           </div>
-
-          <div class="card third">
-            <strong>Back office support</strong>
-            <ul>
-              <li>Workflow and document organization</li>
-              <li>Cleanup projects and systems setup</li>
-              <li>Coordination support with your CPA / EA</li>
-              <li>Practical, maintainable processes</li>
-            </ul>
+          <div class="card step">
+            <b>3  -  Deliver</b>
+            <p>Deliverables in the portal with a short summary and next-step recommendations.</p>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- PROCESS -->
-      <section id="process" aria-label="Process">
-        <h2>How it works</h2>
-        <div class="grid">
-          <div class="card half">
-            <strong>1) Quick consult</strong>
-            <p>You tell me what you need.  I ask a few focused questions.  We align on scope, timeline, and deliverables.</p>
+    <section id="faq">
+      <div class="container">
+        <div class="section-title">
+          <h2>FAQ</h2>
+          <p>What clients usually ask first</p>
+        </div>
+
+        <div class="faq">
+          <details>
+            <summary>Do you offer SMS updates?</summary>
+            <p>Yes.  SMS is optional and used for appointment reminders and status updates.  See <a href="sms-terms.html">SMS Terms</a>.</p>
+          </details>
+          <details>
+            <summary>Do you share my information?</summary>
+            <p>No selling of personal information.  See <a href="privacy.html">Privacy Policy</a> for details.</p>
+          </details>
+          <details>
+            <summary>How do I send documents?</summary>
+            <p>Use the client portal at <a href="https://portal.mezzledger.com">portal.mezzledger.com</a>.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-title">
+          <h2>Contact</h2>
+          <p>Start a file or ask a question</p>
+        </div>
+
+        <div class="grid3">
+          <div class="card feature">
+            <div class="icon">✉️</div>
+            <h3>Email</h3>
+            <p><a href="mailto:sean@mezzledger.com">sean@mezzledger.com</a></p>
           </div>
-          <div class="card half">
-            <strong>2) Clean onboarding</strong>
-            <p>Simple checklist, secure document flow, and an organized workflow so you always know what’s next.</p>
+          <div class="card feature">
+            <div class="icon">📞</div>
+            <h3>Phone</h3>
+            <p><a href="tel:+18058883453">(805) 888-FILE</a></p>
           </div>
-          <div class="card half">
-            <strong>3) Ongoing rhythm</strong>
-            <p>Consistent monthly work, clean reporting, and fast answers - with visibility throughout the process.</p>
-          </div>
-          <div class="card half">
-            <strong>4) Transparent deliverables</strong>
-            <p>Reconciliations, reports, and a clean paper trail - so your books are on the level and ready when you need them.</p>
+          <div class="card feature">
+            <div class="icon">🗂</div>
+            <h3>Client Portal</h3>
+            <p><a href="https://portal.mezzledger.com">portal.mezzledger.com</a></p>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
+  </main>
 
-      <!-- WHO IT'S FOR -->
-      <section aria-label="Who it's for">
-        <h2>Who this is for</h2>
-        <div class="grid">
-          <div class="card">
-            <p style="margin: 0;">
-              Mezzanine Ledger is a fit if you want consistent bookkeeping, tax prep that doesn’t feel like a fire drill, and an organized system you can actually maintain.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- FAQ -->
-      <section id="faq" aria-label="FAQ">
-        <h2>FAQ</h2>
-        <div class="grid">
-          <div class="card half">
-            <strong>How do you price?</strong>
-            <p>Most work is flat monthly or flat per project after a quick consult.  You’ll get a clear scope and a clear number before work starts.</p>
-          </div>
-          <div class="card half">
-            <strong>Do you work with QuickBooks?</strong>
-            <p>Yes.  QuickBooks support is available, including cleanup, catch-up, and ongoing bookkeeping.</p>
-          </div>
-          <div class="card half">
-            <strong>Do you offer bilingual support?</strong>
-            <p>Yes - English and Spanish.</p>
-          </div>
-          <div class="card half">
-            <strong>Can you text me?</strong>
-            <p>Yes.  If you opt in, we can text for scheduling, document requests, and service updates.  Reply STOP to opt out at any time.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- CONTACT -->
-      <section id="contact" aria-label="Contact">
-        <h2>Contact</h2>
-        <div class="grid">
-          <div class="card half">
-            <strong>Request a quote</strong>
-            <p>
-              Email: <a href="mailto:sean@mezzledger.com">sean@mezzledger.com</a><br />
-              Call/Text: <a href="tel:+18058883453">(805) 888-FILE</a>
-            </p>
-            <p style="opacity: 0.86;">
-              Send your name, business type, what you need help with, and which months/years you want covered.  I’ll reply with next steps.
-            </p>
-          </div>
-
-          <div class="card half">
-            <strong>Links</strong>
-            <ul>
-              <li><a href="privacy.html">Privacy Policy</a></li>
-              <li><a href="sms-terms.html">SMS Terms &amp; Conditions</a></li>
-            </ul>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer aria-label="Footer">
-      <small>
-        © <span id="year"></span> Mezzanine Ledger - Libros e impuestos, en regla.  Books &amp; Taxes, On the Level.
-        <br />
-        <a href="privacy.html">Privacy Policy</a> &middot; <a href="sms-terms.html">SMS Terms &amp; Conditions</a>
-      </small>
-    </footer>
-  </div>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <strong>Mezzanine Ledger</strong><br />
+        <small>Books &amp; Taxes, On the Level</small>
+      </div>
+      <div>
+        <small>
+          <a href="privacy.html">Privacy Policy</a>  |  <a href="sms-terms.html">SMS Terms &amp; Conditions</a>
+        </small>
+      </div>
+      <div>
+        <small>&copy; 2026 Mezzanine Ledger</small>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
