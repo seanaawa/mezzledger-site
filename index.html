@@ -1,131 +1,305 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mezzanine Ledger - Libros e impuestos, en regla</title>
-  <meta name="description" content="Mezzanine Ledger: Libros e impuestos, en regla. Contabilidad, impuestos y soporte para pequeñas empresas y personas." />
-  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/assets/styles.css">
-  <script defer src="/assets/site.config.js"></script>
-  <script defer src="/assets/app.js"></script>
+  <title>Mezzanine Ledger | Libros e impuestos, en regla</title>
+  <meta name="description" content="Mezzanine Ledger - bookkeeping and tax preparation with clarity and transparency. Libros e impuestos, en regla." />
+
+  <style>
+    :root {
+      --max: 1120px;
+      --pad: 24px;
+      --radius: 14px;
+      --border: rgba(0,0,0,0.18);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.55;
+      color: #111;
+      background: #fff;
+    }
+    a { color: inherit; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: var(--pad); }
+    header {
+      padding: 18px 0;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+    .brand strong { font-size: 18px; letter-spacing: 0.2px; }
+    .brand small { display: block; opacity: 0.82; }
+    nav a {
+      text-decoration: none;
+      margin-left: 14px;
+      padding: 8px 10px;
+      border-radius: 10px;
+    }
+    nav a:hover { outline: 1px solid var(--border); }
+    .hero { padding: 56px 0 18px; }
+    .badge {
+      display: inline-block;
+      padding: 6px 10px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 13px;
+      opacity: 0.95;
+    }
+    h1 {
+      margin: 14px 0 10px;
+      font-size: clamp(34px, 4.2vw, 56px);
+      line-height: 1.06;
+      letter-spacing: -0.6px;
+    }
+    .subhead {
+      font-size: clamp(16px, 2vw, 20px);
+      max-width: 72ch;
+      margin: 0;
+      opacity: 0.92;
+    }
+    .cta-row {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-weight: 650;
+    }
+    .btn:hover { outline: 2px solid var(--border); outline-offset: 2px; }
+    .btn.secondary { font-weight: 550; opacity: 0.92; }
+    .fine {
+      margin-top: 14px;
+      max-width: 72ch;
+      opacity: 0.86;
+      font-size: 14px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+      margin: 22px 0 34px;
+    }
+    .card {
+      grid-column: span 12;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      background: #fff;
+    }
+    .card p { margin: 10px 0 0; }
+    .card ul { margin: 10px 0 0; padding-left: 18px; }
+    @media (min-width: 860px) {
+      .third { grid-column: span 4; }
+      .half { grid-column: span 6; }
+    }
+    section { padding: 18px 0; }
+    h2 { margin: 0 0 10px; font-size: 24px; letter-spacing: -0.2px; }
+    .kicker { opacity: 0.85; margin: 0 0 10px; }
+    footer {
+      padding: 26px 0 36px;
+      border-top: 1px solid var(--border);
+      margin-top: 18px;
+    }
+    small { opacity: 0.85; }
+  </style>
 </head>
+
 <body>
-  <header class="topbar">
-    <div class="container">
-      <div class="nav">
-        <a class="brand" href="/">
-          <div class="logo" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M7 7h10M7 12h10M7 17h10" stroke="rgba(249,250,251,.9)" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div>
-            <h1>Mezzanine Ledger</h1>
-            <p class="i18n" data-es="Libros e impuestos, en regla" data-en="Books &amp; Taxes, On the Level"></p>
-          </div>
-        </a>
-
-        <nav class="navlinks" aria-label="Primary">
-          <a class="pill" href="/pricing.html"><span class="i18n" data-es="Precios" data-en="Pricing"></span></a>
-          <a class="pill" href="/services.html"><span class="i18n" data-es="Servicios" data-en="Services"></span></a>
-          <a class="pill" href="/about.html"><span class="i18n" data-es="Acerca" data-en="About"></span></a>
-          <a class="pill" href="/contact.html"><span class="i18n" data-es="Contacto" data-en="Contact"></span></a>
-          <a class="pill primary" href="https://portal.mezzledger.com"><span class="i18n" data-es="Portal del Cliente" data-en="Client Portal"></span></a>
-          <div class="lang">
-            <label class="small mono" for="langSelect">LANG</label>
-            <select id="langSelect" aria-label="Language">
-              <option value="es">ES</option>
-              <option value="en">EN</option>
-            </select>
-          </div>
-        </nav>
+  <div class="wrap">
+    <header aria-label="Site header">
+      <div class="brand">
+        <strong>Mezzanine Ledger</strong>
+        <small>Libros e impuestos, en regla</small>
       </div>
-    </div>
-  </header>
 
-  <main>
-    <section class="hero">
-      <div class="container">
+      <nav aria-label="Primary navigation">
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="sms-terms.html">SMS Terms</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero" aria-label="Hero">
+        <span class="badge">Books &amp; Taxes, On the Level</span>
+        <h1>Libros e impuestos, en regla.</h1>
+
+        <p class="subhead">
+          Bookkeeping and tax prep with clear communication, clean records, and a process you can trust.  No chaos.  No guessing.  Just organized finances - done right.
+        </p>
+
+        <div class="cta-row">
+          <a class="btn" href="#contact">Request a quote</a>
+          <a class="btn secondary" href="#services">See services</a>
+        </div>
+
+        <p class="fine">
+          Bilingual support (English / Español).  Serving individuals and small businesses in Ventura County and remotely.
+        </p>
+      </section>
+
+      <!-- VALUE PROPS -->
+      <section aria-label="Value props">
+        <p class="kicker">What you can expect</p>
         <div class="grid">
-          <div class="card hero-card">
-            <div class="h-eyebrow">
-              <span class="badge ok i18n" data-es="Atención rápida" data-en="Fast turnaround"></span>
-              <span class="badge i18n" data-es="Tarifas por adelantado" data-en="Upfront pricing"></span>
-              <span class="badge warn i18n" data-es="California" data-en="California"></span>
-            </div>
+          <div class="card third">
+            <strong>Clean books</strong>
+            <p>Monthly reconciliations and reports that make sense - built for real decisions.</p>
+          </div>
+          <div class="card third">
+            <strong>Straight answers</strong>
+            <p>Clear scope, clear pricing, clear next steps - so you always know what’s happening.</p>
+          </div>
+          <div class="card third">
+            <strong>On the level</strong>
+            <p>Transparent work, organized documentation, and a clean paper trail - no surprises.</p>
+          </div>
+        </div>
+      </section>
 
-            <h2 class="h-title i18n"
-              data-es="Libros claros.  Impuestos listos.  Sin sorpresas."
-              data-en="Clean books.  Filed taxes.  No surprises."></h2>
-
-            <p class="h-sub i18n"
-              data-es="Contabilidad y preparación de impuestos para personas y pequeñas empresas.  Flujo sencillo: documentos, revisión, resultados."
-              data-en="Bookkeeping and tax preparation for individuals and small businesses.  Simple flow: documents, review, done."></p>
-
-            <div class="actions">
-              <a class="btn primary" href="/contact.html">
-                <span class="i18n" data-es="Solicitar una consulta" data-en="Request a consult"></span>
-                <span aria-hidden="true">→</span>
-              </a>
-              <a class="btn" href="/pricing.html">
-                <span class="i18n" data-es="Ver precios" data-en="See pricing"></span>
-              </a>
-              <a class="btn" href="https://portal.mezzledger.com">
-                <span class="i18n" data-es="Entrar al portal" data-en="Go to portal"></span>
-              </a>
-            </div>
-
-            <hr>
-
-            <div class="notice i18n"
-              data-es="<b>Nota:</b> Edite <span class='mono'>/assets/site.config.js</span> para poner su email, teléfono, enlaces, y el URL real del portal de Assembly."
-              data-en="<b>Note:</b> Edit <span class='mono'>/assets/site.config.js</span> to set your email, phone, links, and the real Assembly portal URL."></div>
+      <!-- SERVICES -->
+      <section id="services" aria-label="Services">
+        <h2>Services</h2>
+        <div class="grid">
+          <div class="card third">
+            <strong>Bookkeeping</strong>
+            <ul>
+              <li>Monthly bank and credit card reconciliations</li>
+              <li>Categorization, cleanup, and catch-up</li>
+              <li>Profit &amp; loss, balance sheet, and reporting</li>
+              <li>QuickBooks support (as applicable)</li>
+            </ul>
           </div>
 
-          <aside class="card">
-            <div class="kpis">
-              <div class="kpi">
-                <b class="i18n" data-es="Contabilidad mensual" data-en="Monthly bookkeeping"></b>
-                <span class="i18n" data-es="Categorías, conciliación, reportes." data-en="Categorization, reconciliation, reports."></span>
-              </div>
-              <div class="kpi">
-                <b class="i18n" data-es="Impuestos" data-en="Taxes"></b>
-                <span class="i18n" data-es="Personales y negocios (según alcance)." data-en="Personal and business (scope-based)."></span>
-              </div>
-              <div class="kpi">
-                <b class="i18n" data-es="Portal seguro" data-en="Secure portal"></b>
-                <span class="i18n" data-es="Sube documentos y firma." data-en="Upload documents and e-sign."></span>
-              </div>
-              <div class="kpi">
-                <b class="i18n" data-es="Orden y control" data-en="Order & control"></b>
-                <span class="i18n" data-es="Flujos claros, checklist y seguimiento." data-en="Clear workflows, checklists, follow-ups."></span>
-              </div>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </section>
-  </main>
+          <div class="card third">
+            <strong>Tax preparation</strong>
+            <ul>
+              <li>Organized intake and document checklist</li>
+              <li>Individual and small business returns (as applicable)</li>
+              <li>Year-round readiness - not last-minute panic</li>
+              <li>Clear review and next steps</li>
+            </ul>
+          </div>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="row">
-        <div>
-          <div><b>Mezzanine Ledger</b></div>
-          <div class="small i18n" data-es="Libros e impuestos, en regla" data-en="Books &amp; Taxes, On the Level"></div>
+          <div class="card third">
+            <strong>Back office support</strong>
+            <ul>
+              <li>Workflow and document organization</li>
+              <li>Cleanup projects and systems setup</li>
+              <li>Coordination support with your CPA / EA</li>
+              <li>Practical, maintainable processes</li>
+            </ul>
+          </div>
         </div>
-        <div class="small">
-          <a href="/terms.html"><span class="i18n" data-es="Términos" data-en="Terms"></span></a>
-          &nbsp; • &nbsp;
-          <a href="/privacy.html"><span class="i18n" data-es="Privacidad" data-en="Privacy"></span></a>
-          &nbsp; • &nbsp;
-          <a href="/sitemap.xml">Sitemap</a>
+      </section>
+
+      <!-- PROCESS -->
+      <section id="process" aria-label="Process">
+        <h2>How it works</h2>
+        <div class="grid">
+          <div class="card half">
+            <strong>1) Quick consult</strong>
+            <p>You tell me what you need.  I ask a few focused questions.  We align on scope, timeline, and deliverables.</p>
+          </div>
+          <div class="card half">
+            <strong>2) Clean onboarding</strong>
+            <p>Simple checklist, secure document flow, and an organized workflow so you always know what’s next.</p>
+          </div>
+          <div class="card half">
+            <strong>3) Ongoing rhythm</strong>
+            <p>Consistent monthly work, clean reporting, and fast answers - with visibility throughout the process.</p>
+          </div>
+          <div class="card half">
+            <strong>4) Transparent deliverables</strong>
+            <p>Reconciliations, reports, and a clean paper trail - so your books are on the level and ready when you need them.</p>
+          </div>
         </div>
-      </div>
-      <div class="small">© <span id="year"></span> Mezzanine Ledger.  All rights reserved.</div>
-    </div>
-  </footer>
+      </section>
+
+      <!-- WHO IT'S FOR -->
+      <section aria-label="Who it's for">
+        <h2>Who this is for</h2>
+        <div class="grid">
+          <div class="card">
+            <p style="margin: 0;">
+              Mezzanine Ledger is a fit if you want consistent bookkeeping, tax prep that doesn’t feel like a fire drill, and an organized system you can actually maintain.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq" aria-label="FAQ">
+        <h2>FAQ</h2>
+        <div class="grid">
+          <div class="card half">
+            <strong>How do you price?</strong>
+            <p>Most work is flat monthly or flat per project after a quick consult.  You’ll get a clear scope and a clear number before work starts.</p>
+          </div>
+          <div class="card half">
+            <strong>Do you work with QuickBooks?</strong>
+            <p>Yes.  QuickBooks support is available, including cleanup, catch-up, and ongoing bookkeeping.</p>
+          </div>
+          <div class="card half">
+            <strong>Do you offer bilingual support?</strong>
+            <p>Yes - English and Spanish.</p>
+          </div>
+          <div class="card half">
+            <strong>Can you text me?</strong>
+            <p>Yes.  If you opt in, we can text for scheduling, document requests, and service updates.  Reply STOP to opt out at any time.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" aria-label="Contact">
+        <h2>Contact</h2>
+        <div class="grid">
+          <div class="card half">
+            <strong>Request a quote</strong>
+            <p>
+              Email: <a href="mailto:sean@mezzledger.com">sean@mezzledger.com</a><br />
+              Call/Text: <a href="tel:+18058883453">(805) 888-FILE</a>
+            </p>
+            <p style="opacity: 0.86;">
+              Send your name, business type, what you need help with, and which months/years you want covered.  I’ll reply with next steps.
+            </p>
+          </div>
+
+          <div class="card half">
+            <strong>Links</strong>
+            <ul>
+              <li><a href="privacy.html">Privacy Policy</a></li>
+              <li><a href="sms-terms.html">SMS Terms &amp; Conditions</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer aria-label="Footer">
+      <small>
+        © <span id="year"></span> Mezzanine Ledger - Libros e impuestos, en regla.  Books &amp; Taxes, On the Level.
+        <br />
+        <a href="privacy.html">Privacy Policy</a> &middot; <a href="sms-terms.html">SMS Terms &amp; Conditions</a>
+      </small>
+    </footer>
+  </div>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SMS Terms &amp; Conditions | Mezzanine Ledger</title>
+  <meta name="description" content="SMS Terms and Conditions for Mezzanine Ledger text messaging program." />
+
+  <style>
+    :root {
+      --max: 900px;
+      --pad: 24px;
+      --radius: 14px;
+      --border: rgba(0,0,0,0.18);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: #111;
+      background: #fff;
+    }
+    a { color: inherit; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: var(--pad); }
+    header {
+      padding: 18px 0;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+    nav a {
+      text-decoration: none;
+      margin-left: 14px;
+      padding: 8px 10px;
+      border-radius: 10px;
+    }
+    nav a:hover { outline: 1px solid var(--border); }
+    h1 { margin: 22px 0 6px; font-size: 34px; line-height: 1.15; letter-spacing: -0.4px; }
+    .meta { opacity: 0.85; margin: 0 0 18px; }
+    h2 { margin: 22px 0 10px; font-size: 20px; }
+    ul { margin: 10px 0 0; padding-left: 18px; }
+    p { margin: 10px 0; }
+    footer {
+      padding: 26px 0 36px;
+      border-top: 1px solid var(--border);
+      margin-top: 26px;
+    }
+    small { opacity: 0.85; }
+    .card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      margin: 16px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header aria-label="Site header">
+      <div>
+        <strong>Mezzanine Ledger</strong><br />
+        <small style="opacity:0.82;">Libros e impuestos, en regla</small>
+      </div>
+      <nav aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+    </header>
+
+    <main>
+      <h1>SMS Terms &amp; Conditions</h1>
+      <p class="meta"><strong>Effective Date:</strong> January 13, 2026</p>
+
+      <div class="card">
+        <p>
+          By opting in to receive SMS messages from Mezzanine Ledger, you agree to receive recurring text messages related to appointments, service updates, document requests, and client support.  Message frequency varies.
+        </p>
+
+        <p><strong>Consent is not a condition of purchase.</strong></p>
+
+        <p><strong>Opt-out:</strong> Reply <strong>STOP</strong> to cancel at any time.  You may receive a final confirmation text.</p>
+
+        <p><strong>Help:</strong> Reply <strong>HELP</strong> for help, or contact <a href="mailto:sean@mezzledger.com">sean@mezzledger.com</a>.</p>
+
+        <p><strong>Fees:</strong> Message and data rates may apply.</p>
+
+        <p><strong>Carriers:</strong> Wireless carriers are not liable for delayed or undelivered messages.</p>
+
+        <p>
+          For information about how we use and protect your information, please review our
+          <a href="privacy.html">Privacy Policy</a>.
+        </p>
+      </div>
+
+      <h2>Contact</h2>
+      <p>
+        Mezzanine Ledger<br />
+        Email: <a href="mailto:sean@mezzledger.com">sean@mezzledger.com</a><br />
+        Call/Text: <a href="tel:+18058883453">(805) 888-FILE</a>
+      </p>
+    </main>
+
+    <footer aria-label="Footer">
+      <small>
+        © <span id="year"></span> Mezzanine Ledger - Libros e impuestos, en regla.  Books &amp; Taxes, On the Level.
+        <br />
+        <a href="privacy.html">Privacy Policy</a> &middot; <a href="sms-terms.html">SMS Terms &amp; Conditions</a>
+      </small>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
