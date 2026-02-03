@@ -1,0 +1,84 @@
+/* ===========================
+   Business-card theme override
+   Keeps layout intact, only colors + feel
+   =========================== */
+:root{
+  --bg: #f6f4ef;                /* warm stock */
+  --card: #ffffff;
+  --ink: #111111;
+  --muted: #4b4b4b;
+  --muted2:#6b6b6b;
+  --border: rgba(0,0,0,.10);
+  --radius: 16px;
+  --nav-bg: rgba(246,244,239,.86);
+  --nav-border: rgba(0,0,0,.08);
+}
+
+/* Page background like the card photo (subtle, not noisy) */
+body{
+  background: var(--bg) !important;
+  color: var(--ink) !important;
+}
+
+/* Make nav light + crisp */
+.nav{
+  background: var(--nav-bg) !important;
+  border-bottom: 1px solid var(--nav-border) !important;
+  backdrop-filter: blur(10px);
+}
+
+/* Links readable on light */
+.nav-links a{ color: var(--muted) !important; }
+.nav-links a:hover{ background: rgba(0,0,0,.05) !important; color: var(--ink) !important; }
+
+/* Kill dark/glow effects if any exist in base CSS */
+.hero, .footer{ background: transparent !important; }
+.hero-card, .quick, .feature, .step, details, .pricing-card{
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: 0 8px 20px rgba(0,0,0,.06) !important;
+}
+
+/* Quick facts items: clean, no heavy gray */
+.item{
+  background: #ffffff !important;
+  border: 1px solid var(--border) !important;
+}
+.icon{
+  background: rgba(0,0,0,.04) !important;
+  border: 1px solid rgba(0,0,0,.10) !important;
+}
+
+/* Buttons match card aesthetic */
+.btn{
+  background: #ffffff !important;
+  border: 1px solid rgba(0,0,0,.14) !important;
+  color: var(--ink) !important;
+}
+.btn:hover{ background: rgba(0,0,0,.04) !important; }
+.btn.primary{
+  background: #111111 !important;
+  border-color: #111111 !important;
+  color: #ffffff !important;
+}
+
+/* Pricing table: readable on light */
+.pricing-table thead th{
+  background: rgba(0,0,0,.03) !important;
+  color: var(--ink) !important;
+}
+.pricing-table tbody td{
+  color: var(--muted) !important;
+  border-bottom: 1px solid rgba(0,0,0,.08) !important;
+}
+.pricing-table .price{ color: var(--ink) !important; }
+
+/* Footer */
+.footer{
+  border-top: 1px solid rgba(0,0,0,.08) !important;
+}
+.footer a{ color: var(--muted) !important; }
+.footer a:hover{ color: var(--ink) !important; }
+
+/* Reduce excessive spacing caused by missing styles when viewed locally */
+section{ padding-top: 18px !important; padding-bottom: 18px !important; }
