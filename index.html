@@ -6,8 +6,71 @@
   <title>Mezzanine Ledger  -  Books & Taxes, On the Level</title>
   <meta name="description" content="Bookkeeping, tax preparation, and cleanup for individuals and small businesses in Ventura County, CA." />
   <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    .site-notice{
+      position:fixed;
+      inset:0;
+      z-index:2000;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+      background:rgba(11,15,20,.55);
+      backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
+      transition:opacity .22s ease, visibility .22s ease;
+    }
+
+    .site-notice.is-hidden{
+      opacity:0;
+      visibility:hidden;
+      pointer-events:none;
+    }
+
+    .site-notice-panel{
+      width:min(560px, 100%);
+      padding:28px;
+      border-radius:18px;
+      border:1px solid var(--border);
+      background:linear-gradient(180deg, rgba(17,24,39,.96), rgba(17,24,39,.88));
+      box-shadow:var(--shadow);
+      text-align:left;
+    }
+
+    .site-notice-kicker{
+      margin:0 0 8px;
+      font-size:12px;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
+
+    .site-notice-panel h2{
+      margin:0 0 10px;
+      font-size:28px;
+      line-height:1.1;
+    }
+
+    .site-notice-text{
+      margin:0 0 18px;
+      font-size:16px;
+      color:var(--text);
+      opacity:.92;
+    }
+  </style>
 </head>
 <body>
+  <div id="siteNotice" class="site-notice" role="dialog" aria-modal="true" aria-labelledby="siteNoticeTitle">
+    <div class="site-notice-panel">
+      <p class="site-notice-kicker">Current notice</p>
+      <h2 id="siteNoticeTitle">A quick heads-up.</h2>
+      <p class="site-notice-text">
+        We’re a little behind schedule - like everyone else.  We keep realistic hours, and we still answer the phone.
+      </p>
+      <button id="siteNoticeClose" class="btn primary" type="button">Continue to site</button>
+    </div>
+  </div>
+
   <header class="nav">
     <div class="container nav-inner">
       <a class="brand" href="index.html" aria-label="Mezzanine Ledger home">
@@ -212,5 +275,38 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      var notice = document.getElementById('siteNotice');
+      var closeBtn = document.getElementById('siteNoticeClose');
+      var storageKey = 'mezzledgerNoticeDismissed';
+
+      if (!notice || !closeBtn) return;
+
+      if (localStorage.getItem(storageKey) === 'true') {
+        notice.style.display = 'none';
+        return;
+      }
+
+      function closeNotice() {
+        notice.classList.add('is-hidden');
+        localStorage.setItem(storageKey, 'true');
+        setTimeout(function () {
+          notice.style.display = 'none';
+        }, 220);
+      }
+
+      closeBtn.addEventListener('click', closeNotice);
+
+      notice.addEventListener('click', function (e) {
+        if (e.target === notice) closeNotice();
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeNotice();
+      });
+    })();
+  </script>
 </body>
 </html>
